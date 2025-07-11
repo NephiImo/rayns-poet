@@ -1,0 +1,710 @@
+:root {
+    --primary-color: #008080;
+    --dark-color: #0C1C2D;
+    --light-color: #FDFCFB;
+    --text-color: #0A0A0A;
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --card-radius: 1rem;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--light-color);
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+a, 
+button {
+    transition: all 0.3s ease;
+}
+
+
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
+.header {
+    background-color: var(--dark-color);
+    padding: 1rem;
+    color: white;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--light-color);
+    text-decoration: none;
+}
+
+/* Nav */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem;
+    z-index: 999;
+}
+
+.hamburger::before {
+	content: "☰";
+    font-size: 1.5rem;
+    color: white;
+}
+
+.hamburger.open::before {
+	content: "X";
+}
+
+/* Sidebar */
+.sidebar {
+    margin-top: 1rem;
+}
+
+.recent-section,
+.newsletter {
+    margin-bottom: 1rem;
+}
+
+/* Categories Section */
+.categories-section {
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.categories-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin-bottom: 0.75rem;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 0.5rem;
+}
+
+.category-list li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.category-list li a:hover {
+  color: var(--dark-color);
+}
+
+.daily-inspiration {
+    background-color: #f0f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--dark-color);
+}
+
+.recent-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#recentPoems .recent-poems {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+#recentPoems .recent-poems:last-child {
+    border-bottom: none;
+}
+
+.recent-poems p a {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.recent-poems p a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.search-box {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.25rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    color: white;
+    cursor: pointer;
+    width: 20%;
+}
+
+.subscribe-btn {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    color: white;
+    cursor: pointer;
+    width: 25%;
+}
+
+/* Featured Content */
+.featured-content {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--light-color);
+}
+
+.featured-poem {
+    background-color: var(--light-color);
+    border-left: 4px solid var(--light-color);
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 6px;
+}
+
+.featured-poem h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.poem-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .poem-container {
+        flex-direction: row;
+        justify-content: space-between;
+  }
+
+  .poem-content {
+    flex: 2;
+    margin-right: 2rem;
+  }
+
+  .recent-poems {
+    flex: 1;
+    border-left: 2px solid #ccc;
+    padding-left: 1rem;
+  }
+}
+
+.poem-text {
+    white-space: pre-wrap;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: -2rem;
+}
+
+.back-btn {
+    margin-bottom: 1rem;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-share {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.nav-share button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social-share a {
+  margin-left: 0.5rem;
+  text-decoration: none;
+  color: navy;
+  font-weight: 500;
+}
+
+.poem-meta {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.poem-content {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.read-more-btn {
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--dark-color);
+}
+
+/* From the Gallery */
+.preview-gallery {
+    padding: 2rem 1rem;
+    background-color: var(--light-color);
+    text-align: center;
+}
+
+.preview-gallery h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Poem Gallery */
+.poetry-gallery {
+    padding: 2rem 1rem;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--primary-color, teal);
+    margin-bottom: 0.25rem;
+}
+
+.gallery-header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Filter Buttons */
+    .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.filter-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--primary-color, teal);
+    color: white;
+}
+
+/* Poems Grid */
+.poems-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+/* Poem Card */
+.poem-card {
+    background-color: white;
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.poem-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, teal);
+}
+
+.poem-card h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.poem-card p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
+
+.poem-snippet {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.read-link {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.read-link:hover {
+    text-decoration: underline;
+}
+
+.see-more {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+
+/* Contact Page */
+.contact-intro {
+    padding: 2rem;
+    text-align: center;
+    font-size: large;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: -2rem;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-weight: 500;
+    margin-top: 1rem;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--text-color);
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.contact-form-section {
+    flex: 2;
+}
+
+.contact-social {
+    flex: 1;
+    background-color: var(--background-alt, #f9f9f9);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-social h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-social p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-social a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.contact-social a:hover {
+    text-decoration: underline;
+}
+
+.contact-form button {
+    background-color: teal;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form button:hover {
+    background-color: #004d4d;
+    transform: translateY(-2px);
+}
+
+.contact-form button:active {
+    transform: scale(0.98);
+    background-color: #003737;
+}
+
+/* About Page */
+.about-content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.poetic-backstory,
+.philosophy {
+    padding: 1rem;
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.about-intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.about-intro .tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+.poetic-backstory h2,
+.philosophy h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: var(--dark-color);
+}
+
+.poem-style {
+    font-family: var(--font-heading);
+    line-height: 1.8;
+    font-size: 1rem;
+    background: #f4f4f4;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    color: #222;
+}
+
+.styled-box {
+    background-color: #fdfdfd;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.inspiration-text {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    padding: 0.5rem 0;
+}
+
+.social-share {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.social-share span {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.social-share a {
+    padding: 0.4rem 0.6rem;
+    background-color: var(--dark-color);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.social-share a:hover {
+    background-color: var(--primary-color);
+}
